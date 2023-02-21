@@ -1,0 +1,47 @@
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery.js"> </script>
+<script>
+$(document).ready(function()
+{
+  var count = 0;
+  var colors = new Array('Red','Blue','Green','Indigo','SkyBlue','Pink','Black','Yellow','YellowGreen','Purple','Aqua','DarkBlue');
+
+  $("#btn1").click(function()
+  {	
+	if(count == colors.length)
+	{
+		alert('sorry it is full now');
+	}
+	else
+	{
+		$("<li>" + colors[count] + "</li>").
+		appendTo("#list").css({color:colors[count]});
+		count ++;	
+
+		$('#list li').dblclick(function()
+		{
+			$(this).remove();
+		})
+	}
+  })
+
+  $("#btn2").click(function()
+  {
+	  $('#list').empty();
+	  count = 0;
+  })
+})
+
+</script>
+
+<b style='color:blue'>Add Your Fav Colors</b><br>
+<ul id='list'> </ul>
+	
+<button id='btn1'>Add New Color</button>
+<button id='btn2'>Empty List</button><br><br>
+
+
+
+
+</html>
